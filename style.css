@@ -1,20 +1,38 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
-}
-#canvas {
-    position: absolute;
-    width: 100vmin;
-    aspect-ratio: 1;
-
-    top: 50%;
-    transform: translateY(-50%);
     
 }
-.box {
-    position:relative;
-    width:fit-content;
-    border: 1px solid black;
-
-    top: 50%;
+#canvas {
+    position: relative;
+    width: 80vmin;
+    aspect-ratio: 1;
     left: 50%;
+    transform: translate(-50%, 0);
+}
+.box {
+    position:absolute;
+    height: 20%;
+    width: 100%;
+    border: 1px solid black;
+    background-color: black;
+    top: 80%;
+    color: wheat;
+}
+.matrix {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
