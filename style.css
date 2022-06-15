@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+}
+#canvas {
+    position: absolute;
+    width: 100vmin;
+    aspect-ratio: 1;
+
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+.box {
+    position:relative;
+    width:fit-content;
+    border: 1px solid black;
+
+    top: 50%;
+    left: 50%;
+}
