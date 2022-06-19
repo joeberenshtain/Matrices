@@ -165,10 +165,7 @@ function animate() {
 
     let anime = setInterval(refresh, 50)
     setTimeout(()=>clearInterval(anime), 1000)
-    ca = 0
-     cb = 0
-     cc = 0
-     cd = 0
+   
 }
 document.getElementById('0').addEventListener('keyup',  newn)
 document.getElementById('1').addEventListener('keyup',  newn)
