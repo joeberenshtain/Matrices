@@ -1,7 +1,7 @@
 const WIDTH = 1000
 const HEIGHT = 1000
-var n = 11
-var f = 11
+const    n = 11
+const f = 11
 var memMatrix, maxMatrix, ca, cb, cc, cd
 
 const BACKGROUND = "#ffffff"
@@ -165,6 +165,10 @@ function animate() {
 
     let anime = setInterval(refresh, 50)
     setTimeout(()=>clearInterval(anime), 1000)
+    ca = 0
+     cb = 0
+     cc = 0
+     cd = 0
 }
 document.getElementById('0').addEventListener('keyup',  newn)
 document.getElementById('1').addEventListener('keyup',  newn)
