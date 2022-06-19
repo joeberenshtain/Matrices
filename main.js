@@ -174,7 +174,7 @@ document.getElementById('0').addEventListener('keyup',  newn)
 document.getElementById('1').addEventListener('keyup',  newn)
 document.getElementById('2').addEventListener('keyup',  newn)
 document.getElementById('3').addEventListener('keyup',  newn)
-
+document.getElementById('up').addEventListener('click', animate)
 det.addEventListener('change', refresh)
 ctx.lineWidth = 1
 animate()
