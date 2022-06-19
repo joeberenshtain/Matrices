@@ -1,7 +1,8 @@
 const WIDTH = 1000
-const HEIGHT =1000
-var n = 25
-var f = 25
+const HEIGHT = 1000
+var n = 11
+var f = 11
+var memMatrix, maxMatrix, ca, cb, cc, cd
 
 const BACKGROUND = "#ffffff"
 const BACK_LINES = "#222222"
@@ -118,9 +119,19 @@ function determinant() {
     ctx.globalAlpha = 1
     ctx.fillStyle = "#ffffff"
 }
-function refresh() {
-    matrix = [document.getElementById('0').value, document.getElementById('1').value, 
-              document.getElementById('2').value, document.getElementById('3').value]
+function animate() {
+    var maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
+                 document.getElementById('2').value, document.getElementById('3').value]
+    var memMatrix = [1, 0, 0, 1]
+    var ca = (maxMatrix[0]-1)/20
+    var cb = (maxMatrix[1]-0)/20
+    var cc = (maxMatrix[2]-0)/20
+    var cd = (maxMatrix[3]-1)/20
+
+    setInterval(refresh, 50)
+}
+function refresh(n) {
+    matrix = memMatrix
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     backgroundLines()
     axis()
@@ -129,14 +140,31 @@ function refresh() {
     if (det.checked) {
         determinant()
     }
+    memMatrix[0] += ca;
+    memMatrix[1] += cb;
+    memMatrix[2] += cc;
+    memMatrix[3] += cd;
+
 }
 
 const det = document.getElementById('det')
 const enter = document.getElementById('enter')
 function newn(e) {
     if (e.key == 'Enter') {
-        refresh()
+        animate()
     }
+}
+function animate() {
+     maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
+                 document.getElementById('2').value, document.getElementById('3').value]
+     memMatrix = [1, 0, 0, 1]
+     ca = (maxMatrix[0]-1)/20
+     cb = (maxMatrix[1]-0)/20
+     cc = (maxMatrix[2]-0)/20
+     cd = (maxMatrix[3]-1)/20
+
+    let anime = setInterval(refresh, 50)
+    setTimeout(()=>clearInterval(anime), 1000)
 }
 document.getElementById('0').addEventListener('keyup',  newn)
 document.getElementById('1').addEventListener('keyup',  newn)
@@ -145,4 +173,4 @@ document.getElementById('3').addEventListener('keyup',  newn)
 
 det.addEventListener('change', refresh)
 ctx.lineWidth = 1
-refresh()
+animate()

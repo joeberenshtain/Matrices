@@ -9,9 +9,7 @@ body {
     position: relative;
     width: 80vmin;
     aspect-ratio: 1;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
+  }
 .box {
     position:absolute;
     height: 20%;
