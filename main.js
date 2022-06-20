@@ -157,13 +157,15 @@ const enter = document.getElementById('enter')
 
 function animate() {    
     if (running) return;
-     maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
+    memMatrix = /*maxMatrix ||*/ [1, 0, 0, 1]
+
+    maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
                  document.getElementById('2').value, document.getElementById('3').value]
-     memMatrix = [1, 0, 0, 1]
-     ca = (maxMatrix[0]-1)/20
-     cb = (maxMatrix[1]-0)/20
-     cc = (maxMatrix[2]-0)/20
-     cd = (maxMatrix[3]-1)/20
+     ca = (maxMatrix[0]-memMatrix[0])/20
+     cb = (maxMatrix[1]-memMatrix[1])/20
+     cc = (maxMatrix[2]-memMatrix[2])/20
+     cd = (maxMatrix[3]-memMatrix[3])/20
+     console.log(memMatrix)
     running = true
     anime = setInterval(refresh, 50)
 }
