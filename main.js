@@ -124,16 +124,7 @@ function determinant() {
 
 function update() {
     count++
-    if (count > 20) {
-        clearInterval(anime);
-        count = 0
-        ca = 0
-        cb = 0
-        cc = 0
-        cd = 0
-        running = false
-        return
-    }
+    
   
     
     matrix[0] = memMatrix[0]+ca*count;
@@ -149,11 +140,21 @@ function update() {
     if (det.checked) {
         determinant()
     }
+    if (count >=20) {
+        clearInterval(anime);
+        ca = 0
+        cb = 0
+        cc = 0
+        cd = 0
+        running = false
+        
+    }
 }
 
 
 function animate() {    
     if (running) return;
+    count = 0
     memMatrix = maxMatrix || [1, 0, 0, 1]
 
     maxMatrix = [parseInt(document.getElementById('0').value), parseInt(document.getElementById('1').value), 
