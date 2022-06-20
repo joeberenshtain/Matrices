@@ -1,11 +1,10 @@
 const WIDTH = 1000
 const HEIGHT = 1000
-const    n = 11
-const f = 11
-var memMatrix, maxMatrix, ca, cb, cc, cd, running
+const n = 15
+const f = 15
+var memMatrix, maxMatrix, ca, cb, cc, cd, running, anime
 var matrix = new Array(4);
 var count =0
-var anime
 
 const BACKGROUND = "#ffffff"
 const BACK_LINES = "#222222"
@@ -123,7 +122,7 @@ function determinant() {
     ctx.fillStyle = "#ffffff"
 }
 
-function refresh() {
+function update() {
     count++
     if (count > 20) {
         clearInterval(anime);
@@ -152,24 +151,20 @@ function refresh() {
     }
 }
 
-const det = document.getElementById('det')
-const enter = document.getElementById('enter')
 
 function animate() {    
     if (running) return;
-    memMatrix = /*maxMatrix ||*/ [1, 0, 0, 1]
+    memMatrix = maxMatrix || [1, 0, 0, 1]
 
-    maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
-                 document.getElementById('2').value, document.getElementById('3').value]
+    maxMatrix = [parseInt(document.getElementById('0').value), parseInt(document.getElementById('1').value), 
+                 parseInt(document.getElementById('2').value), parseInt(document.getElementById('3').value)]
      ca = (maxMatrix[0]-memMatrix[0])/20
      cb = (maxMatrix[1]-memMatrix[1])/20
      cc = (maxMatrix[2]-memMatrix[2])/20
      cd = (maxMatrix[3]-memMatrix[3])/20
-     console.log(memMatrix)
     running = true
-    anime = setInterval(refresh, 50)
+    anime = setInterval(update, 50)
 }
 document.getElementById('up').addEventListener('click', animate)
-det.addEventListener('change', refresh)
-ctx.lineWidth = 1
+document.getElementById('det').addEventListener('change', update)
 animate()
