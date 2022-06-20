@@ -2,7 +2,10 @@ const WIDTH = 1000
 const HEIGHT = 1000
 const    n = 11
 const f = 11
-var memMatrix, maxMatrix, ca, cb, cc, cd
+var memMatrix, maxMatrix, ca, cb, cc, cd, running
+var matrix = new Array(4);
+var count =0
+var anime
 
 const BACKGROUND = "#ffffff"
 const BACK_LINES = "#222222"
@@ -119,19 +122,26 @@ function determinant() {
     ctx.globalAlpha = 1
     ctx.fillStyle = "#ffffff"
 }
-function animate() {
-    var maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
-                 document.getElementById('2').value, document.getElementById('3').value]
-    var memMatrix = [1, 0, 0, 1]
-    var ca = (maxMatrix[0]-1)/20
-    var cb = (maxMatrix[1]-0)/20
-    var cc = (maxMatrix[2]-0)/20
-    var cd = (maxMatrix[3]-1)/20
 
-    setInterval(refresh, 50)
-}
-function refresh(n) {
-    matrix = memMatrix
+function refresh() {
+    count++
+    if (count > 20) {
+        clearInterval(anime);
+        count = 0
+        ca = 0
+        cb = 0
+        cc = 0
+        cd = 0
+        running = false
+        return
+    }
+  
+    
+    matrix[0] = memMatrix[0]+ca*count;
+    matrix[1] = memMatrix[1]+cb*count;
+    matrix[2] = memMatrix[2]+cc*count;
+    matrix[3] = memMatrix[3]+cd*count;
+
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     backgroundLines()
     axis()
@@ -140,21 +150,13 @@ function refresh(n) {
     if (det.checked) {
         determinant()
     }
-    memMatrix[0] += ca;
-    memMatrix[1] += cb;
-    memMatrix[2] += cc;
-    memMatrix[3] += cd;
-
 }
 
 const det = document.getElementById('det')
 const enter = document.getElementById('enter')
-function newn(e) {
-    if (e.key == 'Enter') {
-        animate()
-    }
-}
-function animate() {
+
+function animate() {    
+    if (running) return;
      maxMatrix = [document.getElementById('0').value, document.getElementById('1').value, 
                  document.getElementById('2').value, document.getElementById('3').value]
      memMatrix = [1, 0, 0, 1]
@@ -162,15 +164,9 @@ function animate() {
      cb = (maxMatrix[1]-0)/20
      cc = (maxMatrix[2]-0)/20
      cd = (maxMatrix[3]-1)/20
-
-    let anime = setInterval(refresh, 50)
-    setTimeout(()=>clearInterval(anime), 1000)
-   
+    running = true
+    anime = setInterval(refresh, 50)
 }
-document.getElementById('0').addEventListener('keyup',  newn)
-document.getElementById('1').addEventListener('keyup',  newn)
-document.getElementById('2').addEventListener('keyup',  newn)
-document.getElementById('3').addEventListener('keyup',  newn)
 document.getElementById('up').addEventListener('click', animate)
 det.addEventListener('change', refresh)
 ctx.lineWidth = 1
