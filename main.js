@@ -124,7 +124,12 @@ function determinant() {
 
 function update() {
     count++
-    
+    if (count >=20) {
+        clearInterval(anime);
+        count=20
+        running = false
+        
+    }
   
     
     matrix[0] = memMatrix[0]+ca*count;
@@ -140,15 +145,7 @@ function update() {
     if (det.checked) {
         determinant()
     }
-    if (count >=20) {
-        clearInterval(anime);
-        ca = 0
-        cb = 0
-        cc = 0
-        cd = 0
-        running = false
-        
-    }
+    
 }
 
 
