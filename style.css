@@ -5,32 +5,122 @@ body {
     margin: 0;
     
 }
-#canvas {
-    position: relative;
-    width: 80vmin;
-    aspect-ratio: 1;
-  }
-.box {
-    position:absolute;
-    height: 20%;
+
+.title {
+  
+  display: inline-block;
+  margin: 0;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  position: relative;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.options {
+    font-family: 'Courier New', Courier, monospace;  
+
+    height: 100%;
     width: 100%;
-    border: 1px solid black;
-    background-color: black;
-    top: 80%;
-    color: wheat;
+
+    padding: 10px;
+    font-size: 10px;
 }
+#det {
+  font-size: inherit;
+}
+
+
+
 .matrix {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
+  position: relative;
+  display: inline-block;
+  margin: 10px;
 }
+.matrix::before, .matrix::after {
+
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  
+  height: 100%;
+  width: 6px;
+  top: 0;
+}
+.matrix::after {
+  right: -6px;
+  border-left: 0px;
+}
+.matrix::before {
+  left: -6px;
+  border-right: 0px;
+}
+.matrix td {
+/* Set the width and height of the table cells */
+width: 50px;
+height: 50px;
+
+/* Set the font-size of the table cells */
+font-size: 20px;
+
+/* Set the text alignment of the table cells */
+text-align: center;
+
+/* Add a border to the table cells */
+}
+#up {
+  background-color: inherit;
+  border: 1px solid black;
+  width: 100px;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#up:hover {
+  background-color: rgb(22, 22, 22);
+  color: white;
+}
+
+
+#canvas {
+  position: relative;
+  width: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  aspect-ratio: 1;
+
+  border: 1px solid black;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
 }
-
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+  text-align: center;
+  width: 40px ;
+  height: 40px;
+  border: 0;
+  margin: 1px;
+}
+
+@media (max-width: 800px) {
+    .options {
+    }
+    .page {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    #canvas {
+      width: 100vw  ;
+      aspect-ratio: 1;
+    }
 }
