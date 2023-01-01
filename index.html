@@ -7,17 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <div class="box">
-        <input type="checkbox" name="det" id="det">
-        <label for="det">Determinant</label>
-        <div class="matrix">
-            <input type="number" name="" id="0" value="1">
-            <input type="number" name="" id="1" value="0"><br>
-            <input type="number" name="" id="2" value="0">
-            <input type="number" name="" id="3" value="1">
+    <div class="page">
+        <div class="options">
+            <label for="det" style="font-size: 30px;">Determinant</label>
+            <input type="checkbox" name="det" id="det">
+
+
+            <div>
+                <h1 class="title">Matrix:</h1>
+                <div style="font-size: 0;" class="matrix">            
+                    <input type="number" name="" id="0" value="1">
+                    <input type="number" name="" id="1" value="0"><br>
+                    <input type="number" name="" id="2" value="0">
+                    <input type="number" name="" id="3" value="1">
+                </div> <!-- Matrix that changes the position. -->
+                <br>
+                <h1 class="title">Vector:</h1>
+                <div class="matrix">            
+                    <input type="number" name="" id="4" value="1"><br>
+                    <input type="number" name="" id="5" value="1">
+                </div> <!-- Vector Position to be moved. -->   
+            </div>
+                
+            
+            <br>
+            <button id="up">Apply</button>
         </div>
-        <button id="up">Click Me!</button>
+        <canvas id="canvas"></canvas>
+
+    </div>
+    
     </div>
     <script src="main.js"></script>
 </body>
