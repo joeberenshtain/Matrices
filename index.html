@@ -36,8 +36,200 @@
         <canvas id="canvas"></canvas>
 
     </div>
+    <div class="main">
+        <link rel="stylesheet" href="matrix.css">
+
+        <p>
+            <h1 class="header">What are Matrices?</h1>
+            A matrix is a table of numbers organized into rows and columns.
+            Each value in the table is called an element of the matrix.
+            For example, these are some matrices.
+            <equation style="margin-bottom: 0px;">
+                This is Matrix with two rows and two columns:
+                <table class="matrix">
+                    <tr>
+                      <td>1</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>0</td>
+                      <td>1</td>
+                    </tr>
+                </table>
+            </equation>
+            <equation style="margin-bottom: 80px;">
+                This is Matrix with three rows and two columns:
+                <table class="matrix">
+                    <tr>
+                      <td>1</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>6</td>
+                      </tr>
+                </table> 
+            </equation>
+        </p>
+        
+        <p>
+            <h1 class="header">Adding or Subtracting Matrices</h1>
+            Adding Matrices is simple, just add each term with another matrix of the same size.
+            <equation style="margin-bottom: 60px;">
+                <table class="matrix">
+                    <tr>
+                      <td>a</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>b</td>
+                    </tr>
+                    
+                </table> +
+                <table class="matrix">
+                        <tr>
+                          <td>5</td>
+                          <td>6</td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>8</td>
+                        </tr>
+                </table> = 
+                <table class="matrix">
+                        <tr>
+                          <td>a+5</td>
+                          <td>8</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>b+8</td>
+                        </tr>
+                </table>
+            </equation>
+            Subtracting Matrices is also simple, just subtract each term with the terms from another matrix of the same size.
+            <equation style="margin-bottom: 60px;">
+              <table class="matrix">
+                  <tr>
+                    <td>a</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>b</td>
+                  </tr>
+                  
+              </table> -
+              <table class="matrix">
+                      <tr>
+                        <td>5</td>
+                        <td>6</td>
+                      </tr>
+                      <tr>
+                        <td>7</td>
+                        <td>8</td>
+                      </tr>
+              </table> = 
+              <table class="matrix">
+                      <tr>
+                        <td>a-5</td>
+                        <td>-4</td>
+                      </tr>
+                      <tr>
+                        <td>-4</td>
+                        <td>b-8</td>
+                      </tr>
+              </table>
+          </equation>
+        </p>
+
+        <p>
+            <h1 class="header">Multiplying Matrices by numbers</h1>
+        Multiplying a matrix by a number is also simple, just multiply each term of the matrix by the number.
+        <equation>
+          a
+          <table class="matrix">
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>-10</td>
+            </tr>
+          </table>
+          =
+          <table class="matrix">
+            <tr>
+              <td>a</td>
+              <td>2a</td>
+              <td>3a</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>a</td>
+              <td>-10a</td>
+            </tr>
+          </table>
+
+        </equation>
+        </p>
+
+        <p>
+          <h1 class="header">Multiplying Matrices by Vectors</h1>
+          Multiplying matrics by vectors is the most unintuitive of all opertions a matrix can perform. 
+          To do it, the vector must have the same amount of rows as the columns of the matrix. Each axis
+          <equation style="margin-bottom: 60px;">
+            <table class="matrix">
+                <tr>
+                  <td>a</td>
+                  <td>b</td>
+                </tr>
+                <tr>
+                  <td>c</td>
+                  <td>d</td>
+                </tr>
+                
+            </table>
+            <table class="matrix">
+                    <tr>
+                      <td>e</td>
+                    </tr>
+                    <tr>
+                      <td>f</td>
+                    </tr>
+            </table> = e
+            <table class="matrix">
+                    <tr>
+                      <td>a</td>
+                    </tr>
+                    <tr>
+                      <td>b</td>
+                    </tr>
+            </table> + f
+            <table class="matrix">
+                <tr>
+                  <td>c</td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                </tr>
+            </table>
+        </equation>
+        </p>
+        <p>
+        </p>
+    </div>
     
     </div>
     <script src="main.js"></script>
 </body>
+</html>
 </html>
